@@ -49,10 +49,10 @@ export default class InputManager {
      * mostly for debugging purpose
      */
     simulateTiltWithArrowKeys(tilt = 0.5) {
-        if (this.tilt.x === 0) {
+        if (!this.raw.x) {
             this.tilt.x = (this.keys['ArrowRight'] - this.keys['ArrowLeft']) * tilt;
         }
-        if (this.tilt.y === 0) {
+        if (!this.raw.y) {
             this.tilt.y = (this.keys['ArrowDown'] - this.keys['ArrowUp']) * tilt;
         }
     }
