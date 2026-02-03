@@ -29,7 +29,7 @@ Partial list of features / principles :
 
 ## Demo games
 
-Demo games are coming soon
+- [Playground](https://mattjmattj.github.io/tilt-engine/playground/) : simple physics and controls demo
 
 ## Documentation
 
