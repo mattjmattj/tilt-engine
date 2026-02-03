@@ -8,7 +8,7 @@ export default {
   mode: "production",
   entry: "./src/playground.js",
   output: {
-    filename: "playground.js",
+    filename: "build.js",
     path: path.resolve(__dirname, "public"),
   }
 };
