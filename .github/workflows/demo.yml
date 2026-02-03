@@ -1,0 +1,48 @@
+name: Build Demo Games and Publish to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    permissions:
+      contents: read
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup NodeJS
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22.x
+
+    - name: Build playground
+      run: |
+        cd demo/playground
+        npm install
+        npx webpack
+        cd ../..
+
+    - name: Upload demo as artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: demo/
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: $
+
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
