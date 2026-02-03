@@ -2,11 +2,10 @@ import Collider from "./Collider.js";
 import InputManager from "./InputManager.js";
 
 export default class TiltEngine {
-    constructor(canvas, { onUpdate, onDraw, autoResize = true, doubleBuffering = false, fps = 120} = {}) {
+    constructor(canvas, { onUpdate, onDraw, autoResize = true, doubleBuffering = false } = {}) {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         this.doubleBuffering = doubleBuffering;
-        this.fps = fps;
         this.onUpdate = onUpdate;
         this.onDraw = onDraw;
         this.gameObjects = [];
@@ -84,20 +83,16 @@ export default class TiltEngine {
         if (!this.isRunning) {
             return;
         }
-        
-        requestAnimationFrame((t) => this._loop(t));
 
         if (this.width === 0 || this.height === 0) {
+            requestAnimationFrame((t) => this._loop(t));
             return;
         }
 
         const dt = (timestamp - this.lastTime) / 1000;
-        if (dt < 1/this.fps) {
-            return;
-        }
         this.lastTime = timestamp;
 
-        // TODO find a way to avoid running this on mobile devices
+        // TODO find a way not run this on mobile devices
         this.input.simulateTiltWithArrowKeys();
 
         const screenSize = {
@@ -123,7 +118,9 @@ export default class TiltEngine {
         }
         
         // draw
-        this._renderFrame();        
+        this._renderFrame();
+        
+        requestAnimationFrame((t) => this._loop(t));
     }
 
 
