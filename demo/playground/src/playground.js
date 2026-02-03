@@ -89,6 +89,7 @@ const engine = new TiltEngine(document.getElementById('game-canvas'), {
     doubleBuffering: true,
     onUpdate: (dt, input) => {
         document.getElementById("dialog").innerHTML = `Tilt: ${input.tilt.x.toFixed(2)}, ${input.tilt.y.toFixed(2)}`;
+        document.getElementById("dialog").innerHTML += `<br/>FPS: ${(1/dt).toFixed(0)}`;
     }
 });
 
