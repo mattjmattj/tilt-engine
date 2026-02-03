@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pocket Level</title>
+    <link rel="stylesheet" href="public/app.css" />
+</head>
+<body>
+
+    <canvas id="game-canvas"></canvas>
+
+    <div id="ui-layer">
+        <div class="header-container">
+            <h1 class="app-title">Pocket Level</h1>
+            <div class="readout-card">
+                <p class="axis-label">X Axis</p>
+                <p id="x-deg" class="axis-value">0.0°</p>
+                <div class="divider"></div>
+                <p class="axis-label">Y Axis</p>
+                <p id="y-deg" class="axis-value">0.0°</p>
+            </div>
+        </div>
+
+        <div id="start-screen" class="interactive">
+            <div class="start-content">
+                <h1 class="start-title">Pocket Level</h1>
+                <p class="start-desc">
+                    Place device on a surface and click on the ACTIVATE button.<br/>
+                    The application will go fullscreen.
+                </p>
+                <button id="start-btn">
+                    ACTIVATE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/build.js"></script>
+</body>
+</html>

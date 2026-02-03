@@ -25,6 +25,13 @@ jobs:
         npm install
         npx webpack
         cd ../..
+    
+    - name: Build level
+      run: |
+        cd demo/level
+        npm install
+        npx webpack
+        cd ../..
 
     - name: Upload demo as artifact
       uses: actions/upload-pages-artifact@v3

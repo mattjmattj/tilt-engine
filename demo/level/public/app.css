@@ -1,0 +1,131 @@
+:root {
+    --main-bg-color: #123;
+    --card-bg-color: #346;
+    --card-border-color: #345;
+    --secondary-card-border-color: #556;
+    --primary-text-color: #9ac;
+    --secondary-text-color: #fff;
+    --button-bg-color: #0a7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--main-bg-color);
+    touch-action: none;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+:fullscreen, ::backdrop {
+    background-color: var(--main-bg-color);
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.interactive {
+    pointer-events: auto;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+h1.app-title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: bold;
+    color: var(--primary-text-color);
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+}
+
+.readout-card {
+    background-color: var(--card-bg-color);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--card-border-color);
+    text-align: center;
+    min-width: 150px;
+}
+
+.axis-label {
+    font-size: 0.75rem;
+    color: var(--primary-text-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0 0 0.25rem 0;
+}
+
+.axis-value {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--secondary-text-color);
+    margin: 0;
+}
+
+
+.divider {
+    height: 1px;
+    background-color: var(--secondary-card-border-color);
+    margin: 0.5rem 0;
+}
+
+#start-screen {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg-color);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--card-border-color);
+    z-index: 50;
+}
+
+.start-content {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.start-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: var(--secondary-text-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.start-desc {
+    color: var(--primary-text-color);
+    margin: 0 auto 2rem auto;
+    max-width: 20rem;
+    line-height: 1.5;
+}
+
+#start-btn {
+    background-color: var(--button-bg-color);
+    color: var(--secondary-text-color);
+    font-weight: bold;
+    padding: 0.75rem 2.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
