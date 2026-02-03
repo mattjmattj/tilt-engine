@@ -1,3 +1,4 @@
+import { clamp } from "./utils.js";
 
 export default class InputManager {
     constructor({ gravity = 9.8, tiltDeadzone = 0.05 } = {}) {
@@ -32,8 +33,8 @@ export default class InputManager {
             this.raw.y = acc.y;
             this.raw.z = acc.z;
             
-            this.tilt.x = -this.raw.x / this.gravity;
-            this.tilt.y = this.raw.y / this.gravity;
+            this.tilt.x = clamp(-this.raw.x / this.gravity, -1, 1);
+            this.tilt.y = clamp(this.raw.y / this.gravity, -1, 1);
 
             if (Math.abs(this.tilt.x) < this.tiltDeadzone) {
                 this.tilt.x = 0;
